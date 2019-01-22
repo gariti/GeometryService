@@ -11,6 +11,7 @@ namespace gariti.Geometry.Utilities
         public Point Point2 { get; set; }
         public Point Point3 { get; set; }
 
+
         public List<int[]> GetVerticies()
         {
             List<int[]> result = new List<int[]>();
