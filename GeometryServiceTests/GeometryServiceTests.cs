@@ -121,5 +121,37 @@ namespace gariti.Geometry.Tests
             Assert.IsTrue(triangle.Point2.X == 20 && triangle.Point2.Y == 10);
             Assert.IsTrue(triangle.Point3.X == 20 && triangle.Point3.Y == 20);
         }
+
+        [TestMethod]
+        public void ShouldGetF11TriangleVerticies()
+        {
+            //Arrange
+            int xSquarePos = 50;
+            int ySquarePos = 50;
+
+            //Act
+            Triangle triangle = TriangleHelper.GetBottomTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
+
+            //Assert
+            Assert.IsTrue(triangle.Point1.X == 50 && triangle.Point1.Y == 50);
+            Assert.IsTrue(triangle.Point2.X == 50 && triangle.Point2.Y == 60);
+            Assert.IsTrue(triangle.Point3.X == 60 && triangle.Point3.Y == 60);
+        }
+
+        [TestMethod]
+        public void ShouldGetF12TriangleVerticies()
+        {
+            //Arrange
+            int xSquarePos = 50;
+            int ySquarePos = 50;
+
+            //Act
+            Triangle triangle = TriangleHelper.GetTopTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
+
+            //Assert
+            Assert.IsTrue(triangle.Point1.X == 50 && triangle.Point1.Y == 50);
+            Assert.IsTrue(triangle.Point2.X == 60 && triangle.Point2.Y == 50);
+            Assert.IsTrue(triangle.Point3.X == 60 && triangle.Point3.Y == 60);
+        }
     }
 }
