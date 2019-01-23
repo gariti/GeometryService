@@ -26,10 +26,9 @@ namespace gariti.Geometry.Utilities
 
             NumberOfColumns = Length / SquareSize;
             NumberOfRows =  Height / SquareSize;
-            
         }
 
-        public Point CalculateSquarePosition(string letterNumberCoordinates)
+        public Point CalculateGridStartingPoint(string letterNumberCoordinates)
         {
             int y = 0;
             int x = 0; 
@@ -47,6 +46,28 @@ namespace gariti.Geometry.Utilities
             y += rowNumber * SquareSize;
 
             return new Point(x, y);
+        }
+
+        public Triangle GetTriangle(string letterNumberCoordinates)
+        {
+            int num;
+
+            if (letterNumberCoordinates.Length < 2 || !char.IsLetter(letterNumberCoordinates[0]) ||
+                !int.TryParse(letterNumberCoordinates.Substring(1), out num))
+                throw new Exception("Invalid coordinates: " + letterNumberCoordinates);
+
+            Point startingPoint = this.CalculateGridStartingPoint(letterNumberCoordinates);
+
+            Triangle triangle;
+            if (num % 2 == 0)
+            {
+                triangle = Helper.GetTopTriangle(startingPoint.X, startingPoint.Y, SquareSize);
+            } else
+            {
+                triangle = Helper.GetBottomTriangle(startingPoint.X, startingPoint.Y, SquareSize);
+            }
+
+            return triangle;
         }
     }
 }

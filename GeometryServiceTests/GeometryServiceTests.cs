@@ -20,7 +20,7 @@ namespace gariti.Geometry.Tests
             int ySquarePos = 0;
 
             //Act
-            Triangle triangle = TriangleHelper.GetBottomTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
+            Triangle triangle = Helper.GetBottomTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
 
             //Assert
  
@@ -46,7 +46,7 @@ namespace gariti.Geometry.Tests
             int ySquarePos = 0;
 
             //Act
-            Triangle triangle = TriangleHelper.GetTopTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
+            Triangle triangle = Helper.GetTopTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
 
             //Assert
 
@@ -67,7 +67,7 @@ namespace gariti.Geometry.Tests
             int ySquarePos = 0;
 
             //Act
-            Triangle triangle = TriangleHelper.GetBottomTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
+            Triangle triangle = Helper.GetBottomTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
 
             //Assert
             Assert.IsTrue(triangle.Point1.X == 10 && triangle.Point1.Y == 0);
@@ -83,7 +83,7 @@ namespace gariti.Geometry.Tests
             int ySquarePos = 0;
 
             //Act
-            Triangle triangle = TriangleHelper.GetTopTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
+            Triangle triangle = Helper.GetTopTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
 
             //Assert
             Assert.IsTrue(triangle.Point1.X == 10 && triangle.Point1.Y == 0);
@@ -99,7 +99,7 @@ namespace gariti.Geometry.Tests
             int ySquarePos = 10;
 
             //Act
-            Triangle triangle = TriangleHelper.GetBottomTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
+            Triangle triangle = Helper.GetBottomTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
 
             //Assert
             Assert.IsTrue(triangle.Point1.X == 10 && triangle.Point1.Y == 10);
@@ -115,7 +115,7 @@ namespace gariti.Geometry.Tests
             int ySquarePos = 10;
 
             //Act
-            Triangle triangle = TriangleHelper.GetTopTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
+            Triangle triangle = Helper.GetTopTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
 
             //Assert
             Assert.IsTrue(triangle.Point1.X == 10 && triangle.Point1.Y == 10);
@@ -131,7 +131,7 @@ namespace gariti.Geometry.Tests
             int ySquarePos = 50;
 
             //Act
-            Triangle triangle = TriangleHelper.GetBottomTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
+            Triangle triangle = Helper.GetBottomTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
 
             //Assert
             Assert.IsTrue(triangle.Point1.X == 50 && triangle.Point1.Y == 50);
@@ -147,7 +147,7 @@ namespace gariti.Geometry.Tests
             int ySquarePos = 50;
 
             //Act
-            Triangle triangle = TriangleHelper.GetTopTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
+            Triangle triangle = Helper.GetTopTriangle(xSquarePos, ySquarePos, Constants.SQUARE_SIZE);
 
             //Assert
             Assert.IsTrue(triangle.Point1.X == 50 && triangle.Point1.Y == 50);
@@ -172,7 +172,7 @@ namespace gariti.Geometry.Tests
             string input = "A1";
 
             //Act
-            Point point = grid.CalculateSquarePosition(input);
+            Point point = grid.CalculateGridStartingPoint(input);
 
             //Assert
             Assert.IsTrue(point.X == 0 && point.Y == 0);
@@ -186,7 +186,7 @@ namespace gariti.Geometry.Tests
             string input = "A2";
 
             //Act
-            Point point = grid.CalculateSquarePosition(input);
+            Point point = grid.CalculateGridStartingPoint(input);
 
             //Assert
             Assert.IsTrue(point.X == 0 && point.Y == 0);
@@ -200,7 +200,7 @@ namespace gariti.Geometry.Tests
             string input = "C6";
 
             //Act
-            Point point = grid.CalculateSquarePosition(input);
+            Point point = grid.CalculateGridStartingPoint(input);
 
             //Assert
             Assert.IsTrue(point.X == 20 && point.Y == 20);
@@ -214,7 +214,7 @@ namespace gariti.Geometry.Tests
             string input = "D7";
 
             //Act
-            Point point = grid.CalculateSquarePosition(input);
+            Point point = grid.CalculateGridStartingPoint(input);
 
             //Assert
             Assert.IsTrue(point.X == 30 && point.Y == 30);
@@ -228,7 +228,7 @@ namespace gariti.Geometry.Tests
             string input = "F11";
 
             //Act
-            Point point = grid.CalculateSquarePosition(input);
+            Point point = grid.CalculateGridStartingPoint(input);
 
             //Assert
             Assert.IsTrue(point.X == 50 && point.Y == 50);
@@ -242,10 +242,11 @@ namespace gariti.Geometry.Tests
             string input = "F12";
 
             //Act
-            Point point = grid.CalculateSquarePosition(input);
+            Point point = grid.CalculateGridStartingPoint(input);
 
             //Assert
             Assert.IsTrue(point.X == 50 && point.Y == 50);
         }
+
     }
 }

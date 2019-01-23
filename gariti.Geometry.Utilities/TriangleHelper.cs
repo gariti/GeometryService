@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace gariti.Geometry.Utilities
 {
-    public static class TriangleHelper
+    public static class Helper
     {
         public static Triangle GetBottomTriangle(int xOffset, int yOffset, int squareSize)
         {
