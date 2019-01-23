@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using gariti.Geometry.Utilities;
+using System.Drawing;
 
 namespace gariti.Geometry.Tests
 {
@@ -152,6 +153,71 @@ namespace gariti.Geometry.Tests
             Assert.IsTrue(triangle.Point1.X == 50 && triangle.Point1.Y == 50);
             Assert.IsTrue(triangle.Point2.X == 60 && triangle.Point2.Y == 50);
             Assert.IsTrue(triangle.Point3.X == 60 && triangle.Point3.Y == 60);
+        }
+
+        //Test square starting positions
+        //Examples Input = A1
+        //        Output = 0, 0
+        //        Input = A2
+        //        Output = 0, 0
+        //        Input = F11
+        //        Output = 50, 50
+        //        Input = F12
+        //        Output = 50, 50
+        [TestMethod]
+        public void ShouldGetA1SquareStartingPosition()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            string input = "A1";
+
+            //Act
+            Point point = grid.CalculateSquarePosition(input);
+
+            //Assert
+            Assert.IsTrue(point.X == 0 && point.Y == 0);
+        }
+
+        [TestMethod]
+        public void ShouldGetA2SquareStartingPosition()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            string input = "A1";
+
+            //Act
+            Point point = grid.CalculateSquarePosition(input);
+
+            //Assert
+            Assert.IsTrue(point.X == 0 && point.Y == 0);
+        }
+
+        [TestMethod]
+        public void ShouldGetF11SquareStartingPosition()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            string input = "F11";
+
+            //Act
+            Point point = grid.CalculateSquarePosition(input);
+
+            //Assert
+            Assert.IsTrue(point.X == 50 && point.Y == 50);
+        }
+
+        [TestMethod]
+        public void ShouldGetF12SquareStartingPosition()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            string input = "F12";
+
+            //Act
+            Point point = grid.CalculateSquarePosition(input);
+
+            //Assert
+            Assert.IsTrue(point.X == 50 && point.Y == 50);
         }
     }
 }
