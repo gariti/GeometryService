@@ -39,14 +39,6 @@ namespace gariti.Geometry.Utilities
                 !float.TryParse(letterNumberCoordinates.Substring(1), out num))
                 throw new Exception("Invalid coordinates: " + letterNumberCoordinates);
 
-            //Examples Input = A1
-            //        Output = 0, 0
-            //        Input = A2
-            //        Output = 0, 0
-            //        Input = F11
-            //        Output = 50, 50
-            //        Input = F12
-            //        Output = 50, 50
             int column = (int)Math.Ceiling(num / 2) - 1;
 
             x += column * SquareSize;

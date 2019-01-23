@@ -183,13 +183,41 @@ namespace gariti.Geometry.Tests
         {
             //Arrange
             Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
-            string input = "A1";
+            string input = "A2";
 
             //Act
             Point point = grid.CalculateSquarePosition(input);
 
             //Assert
             Assert.IsTrue(point.X == 0 && point.Y == 0);
+        }
+
+        [TestMethod]
+        public void ShouldGetC6SquareStartingPosition()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            string input = "C6";
+
+            //Act
+            Point point = grid.CalculateSquarePosition(input);
+
+            //Assert
+            Assert.IsTrue(point.X == 20 && point.Y == 20);
+        }
+
+        [TestMethod]
+        public void ShouldGetD7SquareStartingPosition()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            string input = "D7";
+
+            //Act
+            Point point = grid.CalculateSquarePosition(input);
+
+            //Assert
+            Assert.IsTrue(point.X == 30 && point.Y == 30);
         }
 
         [TestMethod]
