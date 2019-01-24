@@ -248,5 +248,69 @@ namespace gariti.Geometry.Tests
             Assert.IsTrue(point.X == 50 && point.Y == 50);
         }
 
+        [TestMethod]
+        public void ShouldGetA1TriangleRowAndColumn()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(0, 0);
+            Point point2 = new Point(0, 10);
+            Point point3 = new Point(10, 10);
+
+            //Act
+            string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+
+            //Assert
+            Assert.AreEqual("A1", result);
+        }
+
+        [TestMethod]
+        public void ShouldGetA2TriangleRowAndColumn()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(0, 0);
+            Point point2 = new Point(10, 0);
+            Point point3 = new Point(10, 10);
+
+            //Act
+            string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+
+            //Assert
+            Assert.AreEqual("A2", result);
+        }
+
+        [TestMethod]
+        public void ShouldGetF11TriangleRowAndColumn()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(50, 50);
+            Point point2 = new Point(50, 60);
+            Point point3 = new Point(60, 60);
+
+            //Act
+            string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+
+            //Assert
+            Assert.AreEqual("F11", result);
+        }
+
+        [TestMethod]
+        public void ShouldGetF12TriangleRowAndColumn()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(50, 50);
+            Point point2 = new Point(60, 50);
+            Point point3 = new Point(60, 60);
+
+            //Act
+            string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+
+            //Assert
+            Assert.AreEqual("F12", result);
+        }
+
     }
 }
