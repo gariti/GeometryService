@@ -312,5 +312,180 @@ namespace gariti.Geometry.Tests
             Assert.AreEqual("F12", result);
         }
 
+        [TestMethod]
+        public void ShouldGetF12TriangleRowAndColumn_PointsInDifferentOrder()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(60, 60);
+            Point point2 = new Point(50, 50);
+            Point point3 = new Point(60, 50);
+
+            //Act
+            string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+
+            //Assert
+            Assert.AreEqual("F12", result);
+        }
+
+
+        [TestMethod]
+        public void ShouldGetF11TriangleRowAndColumn_PointsInDifferentOrder()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(50, 60);
+            Point point2 = new Point(50, 60);
+            Point point3 = new Point(50, 50);
+
+            //Act
+            string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+
+            //Assert
+            Assert.AreEqual("F11", result);
+        }
+
+        [TestMethod]
+        public void ShouldGetB4TriangleRowAndColumn_PointsInDifferentOrder()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(20, 10);
+            Point point2 = new Point(10, 10);
+            Point point3 = new Point(20, 20);
+
+            //Act
+            string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+
+            //Assert
+            Assert.AreEqual("B4", result);
+        }
+
+        [TestMethod]
+        public void ShouldGetB3TriangleRowAndColumn_PointsInDifferentOrder()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(10, 10);
+            Point point2 = new Point(10, 20);
+            Point point3 = new Point(20, 20);
+
+            //Act
+            string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+
+            //Assert
+            Assert.AreEqual("B3", result);
+        }
+
+        [TestMethod]
+        public void ShouldGetA1TriangleRowAndColumn_PointsInDifferentOrder()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(10, 10);
+            Point point2 = new Point(0, 0);
+            Point point3 = new Point(0, 10);
+
+            //Act
+            string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+
+            //Assert
+            Assert.AreEqual("A1", result);
+        }
+
+        [TestMethod]
+        public void ShouldGetA2TriangleRowAndColumn_PointsInDifferentOrder()
+        {
+            //Arrange
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(10, 10);
+            Point point2 = new Point(0, 0);
+            Point point3 = new Point(10, 0);
+
+            //Act
+            string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+
+            //Assert
+            Assert.AreEqual("A2", result);
+        }
+
+
+        [TestMethod]
+        public void ShouldThrowException_InvalidPoints1()
+        {
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(5, 10);
+            Point point2 = new Point(0, 0);
+            Point point3 = new Point(10, 0);
+
+            try
+            {
+                string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+                Assert.IsTrue(false);
+            }
+            catch (System.Exception e)
+            {
+                Assert.IsTrue(true);
+            }
+        }
+
+        [TestMethod]
+        public void ShouldThrowException_InvalidPoints2()
+        {
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(0, 20);
+            Point point2 = new Point(0, 0);
+            Point point3 = new Point(10, 0);
+
+            try
+            {
+                string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+                Assert.IsTrue(false);
+            }
+            catch (System.Exception e)
+            {
+                Assert.IsTrue(true);
+            }
+        }
+
+        [TestMethod]
+        public void ShouldThrowException_InvalidPoints3()
+        {
+            Grid grid = new Grid(Constants.GRID_SIZE, Constants.GRID_SIZE, Constants.SQUARE_SIZE);
+            Point point1 = new Point(50, 50);
+            Point point2 = new Point(50, 50);
+            Point point3 = new Point(50, 50);
+
+            try
+            {
+                string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+                Assert.IsTrue(false);
+            }
+            catch (System.Exception e)
+            {
+                Assert.IsTrue(true);
+            }
+        }
+
+        [TestMethod]
+        public void ShouldThrowException_InvalidPoints4()
+        {
+            Grid grid = new Grid(60, 60, 10);
+            Point point1 = new Point(100, 100);
+            Point point2 = new Point(100, 110);
+            Point point3 = new Point(110, 110);
+
+            try
+            {
+                string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+                Assert.IsTrue(false);
+            }
+            catch (System.Exception e)
+            {
+                Assert.IsTrue(true);
+            }
+        }
+
+
     }
 }

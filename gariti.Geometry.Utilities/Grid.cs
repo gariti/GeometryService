@@ -75,9 +75,9 @@ namespace gariti.Geometry.Utilities
 
         public string CalculateTriangleRowAndColumn(Point point1, Point point2, Point point3)
         {
-            //TODO validate input
-
             List<Point> points = new List<Point>() { point1 , point2, point3};
+            ValidatePoints(points);
+
 
             //sort 3 points by lowest values to determine starting corner of square in grid (upperleft)
             points = new List<Point>(points.OrderBy(pt => pt.X + pt.Y)).ToList();
@@ -87,7 +87,6 @@ namespace gariti.Geometry.Utilities
             int row = (startingX / SquareSize);
             string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             string letterPosition = alphabet[row].ToString();
-
 
             int column = (startingY / SquareSize) + 1;
             int numberPosition = 0;
@@ -103,6 +102,28 @@ namespace gariti.Geometry.Utilities
             }
 
             return letterPosition += numberPosition;
+        }
+
+        private void ValidatePoints(List<Point> points)
+        {
+            foreach (var point in points)
+            {
+                if (point.X % SquareSize != 0 || point.Y % SquareSize != 0)
+                {
+                    throw new Exception(string.Format("Invalid input!  Coordinates should be divisible by {0}: {1}{2}",
+                        SquareSize, Environment.NewLine, points.ToString()));
+                }
+            }
+
+            List<double> sideLengths = new List<double>();
+            sideLengths.Add(points.ElementAt(0).GetDistance(points.ElementAt(1)));
+            sideLengths.Add(points.ElementAt(0).GetDistance(points.ElementAt(2)));
+            sideLengths.Add(points.ElementAt(1).GetDistance(points.ElementAt(2)));
+
+            if (sideLengths.Where(len => len != SquareSize).Count() > 2)
+                throw new Exception("Unexpected Triangle: " + points.ToString());
+
+
         }
     }
 }
