@@ -1,4 +1,10 @@
 # GeometryService
+ExampleURIs
+
+https://localhost:44328/api/grid/triangle/byPoints?x1=30&y1=30&x2=30&y2=40&x3=40&y3=40
+
+https://localhost:44328/api/grid/triangle/byLoc?loc=A1
+
 
 Geometric layouts
 1.A - 
