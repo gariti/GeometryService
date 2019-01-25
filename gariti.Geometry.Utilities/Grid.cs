@@ -121,7 +121,7 @@ namespace gariti.Geometry.Utilities
             sideLengths.Add(points.ElementAt(1).GetDistance(points.ElementAt(2)));
 
             if (sideLengths.Where(len => len != SquareSize).Count() > 2)
-                throw new Exception("Unexpected Triangle: " + points.ToString());
+                throw new Exception("Unexpected Triangle specified!");
 
 
         }
