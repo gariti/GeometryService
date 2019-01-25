@@ -521,5 +521,25 @@ namespace gariti.Geometry.Tests
             Assert.IsTrue(threwException);
         }
 
+        [TestMethod]
+        public void ShouldThrowException_InvalidPoints6()
+        {
+            Grid grid = new Grid(60, 60, 10);
+            Point point1 = new Point(30, 30);
+            Point point2 = new Point(30, 40);
+            Point point3 = new Point(40, 30);
+            bool threwException = false;
+
+            try
+            {
+                string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+            }
+            catch (System.Exception e)
+            {
+                threwException = true;
+            }
+
+            Assert.IsTrue(threwException);
+        }
     }
 }

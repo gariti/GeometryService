@@ -118,6 +118,11 @@ namespace gariti.Geometry.Utilities
                 }
             }
 
+            //TODO: invalid triangle: right angle is in the upperleft corner
+            //TODO: invalid triangle: right angle is in the lowerleft corner
+            
+
+
             List<double> sideLengths = new List<double>();
             sideLengths.Add(points.ElementAt(0).GetDistance(points.ElementAt(1)));
             sideLengths.Add(points.ElementAt(0).GetDistance(points.ElementAt(2)));
