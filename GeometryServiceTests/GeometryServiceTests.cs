@@ -417,6 +417,7 @@ namespace gariti.Geometry.Tests
             Point point1 = new Point(5, 10);
             Point point2 = new Point(0, 0);
             Point point3 = new Point(10, 0);
+            bool threwException = false;
 
             try
             {
@@ -425,8 +426,10 @@ namespace gariti.Geometry.Tests
             }
             catch (System.Exception e)
             {
-                Assert.IsTrue(true);
+                threwException = true;
             }
+
+            Assert.IsTrue(threwException);
         }
 
         [TestMethod]
@@ -436,6 +439,7 @@ namespace gariti.Geometry.Tests
             Point point1 = new Point(0, 20);
             Point point2 = new Point(0, 0);
             Point point3 = new Point(10, 0);
+            bool threwException = false;
 
             try
             {
@@ -444,8 +448,10 @@ namespace gariti.Geometry.Tests
             }
             catch (System.Exception e)
             {
-                Assert.IsTrue(true);
+                threwException = true;
             }
+
+            Assert.IsTrue(threwException);
         }
 
         [TestMethod]
@@ -455,16 +461,20 @@ namespace gariti.Geometry.Tests
             Point point1 = new Point(50, 50);
             Point point2 = new Point(50, 50);
             Point point3 = new Point(50, 50);
+            bool threwException = false;
 
             try
             {
                 string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
                 Assert.IsTrue(false);
             }
+
             catch (System.Exception e)
             {
-                Assert.IsTrue(true);
+                threwException = true;
             }
+
+            Assert.IsTrue(threwException);
         }
 
         [TestMethod]
@@ -475,17 +485,41 @@ namespace gariti.Geometry.Tests
             Point point2 = new Point(100, 110);
             Point point3 = new Point(110, 110);
 
+            bool threwException = false;
             try
             {
                 string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
                 Assert.IsTrue(false);
             }
+
             catch (System.Exception e)
             {
-                Assert.IsTrue(true);
+                threwException = true;
             }
+
+            Assert.IsTrue(threwException);
         }
 
+        [TestMethod]
+        public void ShouldThrowException_InvalidPoints5()
+        {
+            Grid grid = new Grid(60, 60, 10);
+            Point point1 = new Point(0, 30);
+            Point point2 = new Point(30, 40);
+            Point point3 = new Point(40, 40);
+            bool threwException = false;
+
+            try
+            {
+                string result = grid.CalculateTriangleRowAndColumn(point1, point2, point3);
+            }
+            catch (System.Exception e)
+            {
+                threwException = true;
+            }
+
+            Assert.IsTrue(threwException);
+        }
 
     }
 }
