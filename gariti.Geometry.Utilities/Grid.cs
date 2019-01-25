@@ -34,9 +34,9 @@ namespace gariti.Geometry.Utilities
             int y = 0;
             int x = 0; 
             float num;
-            
+
             if (letterNumberCoordinates.Length < 2 || !char.IsLetter(letterNumberCoordinates[0]) ||
-                !float.TryParse(letterNumberCoordinates.Substring(1), out num))
+                !float.TryParse(letterNumberCoordinates.Substring(1), out num) || num <= 0)
                 throw new Exception("Invalid coordinates: " + letterNumberCoordinates);
 
             int column = (int)Math.Ceiling(num / 2) - 1;
@@ -47,6 +47,9 @@ namespace gariti.Geometry.Utilities
             int rowNumber = char.ToUpper(letterNumberCoordinates[0]) - 65;
 
             y += rowNumber * SquareSize;
+
+            if (x > Length || y > Height)
+                throw new Exception("Triangle is outside of the grid");
 
             return new Point(x, y);
         }
