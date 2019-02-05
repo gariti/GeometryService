@@ -504,9 +504,9 @@ namespace gariti.Geometry.Tests
         public void ShouldThrowException_InvalidPoints5()
         {
             Grid grid = new Grid(60, 60, 10);
-            Point point1 = new Point(0, 30);
-            Point point2 = new Point(30, 40);
-            Point point3 = new Point(40, 40);
+            Point point1 = new Point(0, 0);
+            Point point2 = new Point(10, 0);
+            Point point3 = new Point(0, 10);
             bool threwException = false;
 
             try

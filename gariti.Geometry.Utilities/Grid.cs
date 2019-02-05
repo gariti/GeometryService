@@ -118,19 +118,36 @@ namespace gariti.Geometry.Utilities
                 }
             }
 
-            //TODO: invalid triangle: right angle is in the upperleft corner
-            //TODO: invalid triangle: right angle is in the lowerleft corner
-            
+            List<Line> sides = new List<Line>();
 
+            sides.Add(new Line(points[0], points[1]));
+            sides.Add(new Line(points[0], points[2]));
+            sides.Add(new Line(points[1], points[2]));
 
-            List<double> sideLengths = new List<double>();
-            sideLengths.Add(points.ElementAt(0).GetDistance(points.ElementAt(1)));
-            sideLengths.Add(points.ElementAt(0).GetDistance(points.ElementAt(2)));
-            sideLengths.Add(points.ElementAt(1).GetDistance(points.ElementAt(2)));
+            Line hypotenuse = null;
 
-            if (sideLengths.Where(len => len != (double)SquareSize).Count() > 1)
-                throw new Exception("Unexpected Triangle specified!");
+            foreach (var side in sides)
+            {
+                if (side.Length != Convert.ToDouble(SquareSize))
+                {
+                    if (hypotenuse == null)
+                        hypotenuse = side;
+                    else
+                        throw new Exception("Invalid Triangle: More than one side is longer or shorter than " + SquareSize);
+                }
+            }
 
+            //check if hypotenuse is '/'
+            if (hypotenuse.Point1.X > hypotenuse.Point2.X)
+            {
+                if (hypotenuse.Point2.Y > hypotenuse.Point1.Y)
+                    throw new Exception("Invalid hypotenuse");
+            }
+            else
+            {
+                if (hypotenuse.Point2.Y < hypotenuse.Point1.Y)
+                    throw new Exception("Invalid hypotenuse");
+            }
 
         }
     }
